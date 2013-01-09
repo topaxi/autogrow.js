@@ -2,11 +2,10 @@
 
 var document = window.document
   , _slice   = Array.prototype.slice
-  , autogrow = window.autogrow = function(el) { return new Autogrow(el) }
-
-function select(selector) {
-  return _slice.call(document.querySelectorAll(selector))
-}
+  , autogrow = window.autogrow = function(el) {
+                                   if (el.length) _slice.call(el).forEach(autogrow)
+                                   else return new Autogrow(el)
+                                 }
 
 function prev(el) {
   while (el = el.previousSibling) {
@@ -101,6 +100,6 @@ Autogrow.prototype = {
   }
 }
 
-select('[data-autogrow=true]').forEach(autogrow)
+autogrow(document.querySelectorAll('[data-autogrow=true]'))
 
 }(this)
