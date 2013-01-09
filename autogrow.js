@@ -5,9 +5,9 @@
 
 var document = window.document
   , _slice   = Array.prototype.slice
-  , autogrow = window.autogrow = function(el) {
+  , autogrow = window.autogrow = function(el, fn) {
     if (el.length !== void 0) _slice.call(el).forEach(autogrow)
-    else return new Autogrow(el)
+    else return new Autogrow(el, fn)
   }
 
 function prev(el) {
@@ -38,9 +38,10 @@ function nl2br(s) {
   return s.replace(/\n/g, '<br>')
 }
 
-function Autogrow(el) {
-  this.el   = el
-  this.grow = this.grow.bind(this)
+function Autogrow(el, fn) {
+  this.el       = el
+  this.onresize = fn
+  this.grow     = this.grow.bind(this)
 
   el.style.minHeight = el.rows + 'em'
   el.style.overflow  = 'hidden'
