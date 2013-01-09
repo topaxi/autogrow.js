@@ -62,9 +62,12 @@ Autogrow.prototype = {
 
     hide(this.dummy, false)
 
-    this.el.style.height = getComputedStyle(this.dummy).getPropertyValue('height')
+    var height = getComputedStyle(this.dummy).getPropertyValue('height')
+    this.el.style.height = height
 
     hide(this.dummy, true)
+
+    if (this.onresize) this.onresize(parseInt(height, 10))
   }
   , createDummy: function() {
     if (!this.dummy) {
