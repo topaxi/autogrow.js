@@ -6,9 +6,9 @@
 var document = window.document
   , _slice   = Array.prototype.slice
   , autogrow = window.autogrow = function(el) {
-                                   if (el.length) _slice.call(el).forEach(autogrow)
-                                   else return new Autogrow(el)
-                                 }
+    if (el.length !== void 0) _slice.call(el).forEach(autogrow)
+    else return new Autogrow(el)
+  }
 
 function prev(el) {
   while (el = el.previousSibling) {
