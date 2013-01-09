@@ -1,3 +1,6 @@
+// Author:  Damian Senn
+// Website: https://github.com/topaxi/autogrow.js
+// License: MIT
 !function(window) { 'use strict';
 
 var document = window.document
