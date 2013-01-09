@@ -6,7 +6,7 @@
 var document = window.document
   , _slice   = Array.prototype.slice
   , autogrow = window.autogrow = function(el, fn) {
-    if (el.length !== void 0) _slice.call(el).forEach(autogrow)
+    if (el.length !== void 0) _slice.call(el).forEach(function(el) { autogrow(el, fn) })
     else return new Autogrow(el, fn)
   }
 
