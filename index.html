@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+	<title>JavaScript Autogrow</title>
+	<style>pre, textarea { margin: 0; border: 1px solid black; vertical-align: top; font-family: "Bitstream Vera Sans Mono", monospace }</style>
+</head>
+<body>
+	<textarea data-autogrow="true" style="width:250px;margin:0;padding:0"></textarea>
+	<textarea id="foo" style="width:150px;margin:0;padding:0">foobar</textarea>
+	<script src="autogrow.js"></script>
+	<script>autogrow(document.getElementById('foo'))</script>
+</body>
+</html>
