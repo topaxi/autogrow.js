@@ -86,13 +86,14 @@ Autogrow.prototype = {
     var dstyle = this.dummy.style
       , ostyle = getComputedStyle(this.el)
 
-    dstyle.whiteSpace    = 'pre-wrap'
-    dstyle.wordWrap      = ostyle.getPropertyValue('word-wrap') || 'break-word'
-    dstyle.width         = ostyle.getPropertyValue('width')
-    dstyle.padding       = ostyle.getPropertyValue('padding')
-    dstyle.fontFamily    = ostyle.getPropertyValue('font-family')
-    dstyle.fontSize      = ostyle.getPropertyValue('font-size')
-    dstyle.lineHeight    = ostyle.getPropertyValue('line-height')
+    dstyle.whiteSpace = 'pre-wrap'
+    dstyle.boxSizing  = 'border-box'
+    dstyle.wordWrap   = ostyle.getPropertyValue('word-wrap') || 'break-word'
+    dstyle.width      = ostyle.getPropertyValue('width')
+    dstyle.padding    = ostyle.getPropertyValue('padding')
+    dstyle.fontFamily = ostyle.getPropertyValue('font-family')
+    dstyle.fontSize   = ostyle.getPropertyValue('font-size')
+    dstyle.lineHeight = ostyle.getPropertyValue('line-height')
   }
   , destroy: function() {
     this.el.removeAttribute('style')
